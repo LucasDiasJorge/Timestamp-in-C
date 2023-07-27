@@ -1,14 +1,14 @@
 #include <stdio.h>
-#include <sys/time.h>
+#include "time.h"
 
 int main(){
 
-        struct timeval tv;
-        gettimeofday(&tv,NULL);
-        tv.tv_sec; // seconds
-        tv.tv_usec; // microseconds
+    time_t startTime = time(NULL); // Now
+    time_t tempTime = time(NULL) + 50; // Set tempTime to now + 50 seconds
 
-        printf("%ld\n", tv.tv_sec);
+    printf("Start time: %i\n",startTime);
+    printf("Temp time: %i\n",tempTime);
+    printf("Diff time: %i\n",difftime(tempTime, startTime));
 
-        return 0;
+    return 0;
 }
